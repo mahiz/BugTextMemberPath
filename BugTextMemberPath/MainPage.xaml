@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="BugTextMemberPath.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BugTextMemberPath"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock Margin="12,8" Style="{StaticResource BodyTextBlockStyle}">
+            <Run Text="Bug repro instructions:" FontStyle="Italic" FontWeight="Bold"/>
+            <LineBreak/>
+            <Run Text="Write anything in the box."/>
+            <LineBreak/>
+            <Run Text="Watch suggestions being populated correctly using DisplayMemberPath."/>
+            <LineBreak/>
+            <Run Text="Choose a suggestion."/>
+            <LineBreak/>
+            <Run Text="The app will silently crash due to a low level unhandled error caused by TextMemberPath."/>
+        </TextBlock>
+        
+        <AutoSuggestBox x:Name="Box" 
+                        Margin="12,8"
+                        TextMemberPath="Item.Name"
+                        DisplayMemberPath="Item.Name"/>
+
+        <TextBlock Margin="12,8" Style="{StaticResource BodyTextBlockStyle}">
+            <Run Text="Note:" FontStyle="Italic" FontWeight="Bold"/>
+            <LineBreak/>
+            <Run Text="The AutoSuggestBox source is set to an array (of type ItemWrapper)."/>
+            <LineBreak/>
+            <Run Text="ItemWrapper has a property Item (of type Item)."/>
+            <LineBreak/>
+            <Run Text="Item has a property Name (of type string)."/>
+            <LineBreak/>
+            <Run Text="DisplayMemberPath and TextMemberPath are set to 'Item.Name'."/>
+        </TextBlock>
+
+    </StackPanel>
+</Page>

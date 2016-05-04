@@ -1,0 +1,1 @@
+C:\Git\BugTextMemberPath\BugTextMemberPath\BugTextMemberPath.csproj;x86
